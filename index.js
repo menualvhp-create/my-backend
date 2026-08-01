@@ -330,7 +330,17 @@ app.post('/api/contact', (req, res) => {
   contactMessages.push(savedMessage);
   res.status(201).json({ message: 'Contact message sent successfully.', contactMessage: savedMessage });
 });
-
+// GET Items Route (Frontend එකට Data යැවීම සඳහා)
+app.get('/api/items', (req, res) => {
+    res.json({
+        success: true,
+        data: [
+            { id: 1, title: "Vacuum Cleaner", category: "Cleaning", pricePerDay: 800 },
+            { id: 2, title: "Grass Cutter", category: "Gardening", pricePerDay: 1200 },
+            { id: 3, title: "Pressure Washer", category: "Cleaning", pricePerDay: 1500 }
+        ]
+    });
+});
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
